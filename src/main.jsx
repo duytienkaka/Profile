@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const profile = {
   name: "Phạm Đức Duy Tiến",
   role: "Flutter Developer",
-  focus: "Mobile Developer / Flutter Developer",
+  focus: "Mobile Developer / Flutter",
   email: "duytienkaka123az@gmail.com",
   github: "https://github.com/duytienkaka",
   zalo: "tel:0382381164",
@@ -30,53 +30,62 @@ const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURICompo
   "Chào Duy Tiến,\n\nMình muốn trao đổi với bạn về một cơ hội/dự án mobile.\n\n",
 )}`;
 
-const techGroups = [
+const stackBadges = [
+  ["Dart", "D"],
+  ["Flutter", "F"],
+  ["Material 3", "M3"],
+  ["Riverpod", "R"],
+  ["go_router", "Go"],
+  ["Drift SQLite", "SQL"],
+  ["Supabase", "S"],
+  ["Firebase", "Fb"],
+  ["RESTful API", "API"],
+  ["Git", "Git"],
+  ["GitHub", "GH"],
+];
+
+const techCards = [
   {
-    title: "Ngôn ngữ",
-    lead: "Dart",
-    text: "Dart là ngôn ngữ chính; có nền tảng JavaScript và TypeScript để làm việc với API, tooling và các dự án liên quan.",
+    title: "UI & Navigation",
+    text: "Flutter, Material 3, go_router và component tái sử dụng để giữ trải nghiệm nhất quán giữa các màn hình.",
   },
   {
-    title: "Flutter Stack",
-    lead: "Flutter",
-    text: "Flutter, Material 3, Riverpod, go_router, Provider và Bloc cho giao diện, điều hướng và quản lý trạng thái.",
+    title: "State & Data",
+    text: "Riverpod, Drift SQLite, SharedPreferences và mô hình offline-first để app phản hồi nhanh khi mạng không ổn định.",
   },
   {
-    title: "Dữ liệu và API",
-    lead: "SQLite",
-    text: "Drift (SQLite), Supabase, Firebase, RESTful API, SharedPreferences và luồng dữ liệu offline-first.",
+    title: "Backend Integration",
+    text: "Supabase, Firebase, RESTful API và luồng đồng bộ dữ liệu giúp dự án gần với môi trường sản phẩm thật.",
   },
   {
-    title: "Quy trình",
-    lead: "Git",
-    text: "Git, GitHub, README, demo project, quản lý mã nguồn và tinh thần làm việc nhóm rõ ràng.",
+    title: "Product Handoff",
+    text: "GitHub, README, ảnh demo và cấu trúc repo rõ ràng để nhà tuyển dụng có thể đọc nhanh năng lực kỹ thuật.",
   },
 ];
 
 const caseSteps = [
   {
     title: "Bài toán sản phẩm",
-    text: "Tiết Kiệm Chi Tiêu giúp người dùng quản lý nhiều ví như tiền mặt, tài khoản ngân hàng và tiết kiệm; ghi nhận thu nhập, chi tiêu, chuyển tiền, ngân sách, mục tiêu tiết kiệm và giao dịch định kỳ.",
+    text: "Tiết Kiệm Chi Tiêu giúp người dùng quản lý nhiều ví, ghi nhận thu nhập, chi tiêu, chuyển tiền, ngân sách, mục tiêu tiết kiệm và giao dịch định kỳ.",
   },
   {
-    title: "Giải pháp kỹ thuật",
-    text: "Ứng dụng được xây bằng Flutter, Material 3, Riverpod, go_router và Drift (SQLite), kết hợp Supabase để đồng bộ dữ liệu. Cấu trúc tách rõ UI, state, dữ liệu cục bộ và dịch vụ đồng bộ.",
+    title: "Kiến trúc ứng dụng",
+    text: "Ứng dụng dùng Flutter, Material 3, Riverpod, go_router và Drift SQLite, kết hợp Supabase để đồng bộ dữ liệu và giữ codebase dễ mở rộng.",
   },
   {
     title: "Điểm kỹ thuật nổi bật",
-    text: "Luồng phát hiện giao dịch ngân hàng từ thông báo Android là điểm đáng chú ý: ứng dụng có thể đọc tín hiệu từ thông báo, hỗ trợ người dùng kiểm tra và ghi nhận giao dịch nhanh hơn.",
+    text: "Luồng phát hiện giao dịch ngân hàng từ thông báo Android giúp người dùng kiểm tra và ghi nhận giao dịch nhanh hơn.",
   },
   {
     title: "Giá trị thể hiện",
-    text: "Dự án cho thấy khả năng xây dựng app mobile có giao diện hoàn chỉnh, dữ liệu offline, backup/restore JSON, khóa PIN, đính kèm ảnh hóa đơn và chia sẻ ví theo người dùng.",
+    text: "Dự án có offline-first, backup/restore JSON, khóa PIN, đính kèm ảnh hóa đơn, chia sẻ ví và giao diện đủ hoàn thiện để demo.",
   },
 ];
 
-const skills = [
+const skillMarquee = [
   "Flutter",
   "Dart",
   "Riverpod",
-  "go_router",
   "Drift SQLite",
   "Supabase",
   "Material 3",
@@ -86,44 +95,54 @@ const skills = [
   "GitHub",
 ];
 
+function PhoneMockup({ src, alt, className = "" }) {
+  return (
+    <div className={`phone-mockup ${className}`}>
+      <div className="phone-speaker" />
+      <div className="phone-screen">
+        <img src={src} alt={alt} />
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const rootRef = useRef(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".nav-shell", {
-        y: -26,
+        y: -24,
         opacity: 0,
         duration: 0.8,
         ease: "power3.out",
       });
 
-      gsap.from(".hero-kicker, .hero-title, .hero-copy, .hero-actions", {
-        y: 46,
+      gsap.from(".hero-kicker, .hero-title, .hero-copy, .hero-actions, .stack-badges", {
+        y: 42,
         opacity: 0,
-        duration: 1,
-        stagger: 0.09,
+        duration: 0.95,
+        stagger: 0.08,
         ease: "power3.out",
       });
 
-      gsap.from(".app-window", {
-        y: 72,
-        scale: 0.9,
+      gsap.from(".hero-device", {
+        y: 80,
+        rotate: 4,
+        scale: 0.88,
         opacity: 0,
         duration: 1.1,
-        stagger: 0.08,
         ease: "power3.out",
-        delay: 0.18,
+        delay: 0.12,
       });
 
       gsap.utils.toArray(".image-lift").forEach((image) => {
         gsap.fromTo(
           image,
-          { scale: 0.86, opacity: 0.45, filter: "brightness(0.92) contrast(0.9) saturate(0.75)" },
+          { scale: 0.88, opacity: 0.5 },
           {
             scale: 1,
             opacity: 1,
-            filter: "brightness(1) contrast(1.05) saturate(0.95)",
             scrollTrigger: {
               trigger: image,
               start: "top 90%",
@@ -137,7 +156,7 @@ function App() {
       gsap.utils.toArray(".case-step").forEach((card, index) => {
         gsap.to(card, {
           yPercent: -6 * index,
-          scale: 1 - index * 0.02,
+          scale: 1 - index * 0.018,
           scrollTrigger: {
             trigger: card,
             start: "top 78%",
@@ -169,55 +188,59 @@ function App() {
       </nav>
 
       <section id="home" className="hero-section">
-        <div className="hero-orb hero-orb-one" />
-        <div className="hero-orb hero-orb-two" />
+        <div className="glow glow-one" />
+        <div className="glow glow-two" />
 
         <div className="hero-content">
           <p className="hero-kicker">{profile.focus} / {profile.location}</p>
           <h1 className="hero-title">{profile.headline}</h1>
           <p className="hero-copy">{profile.tagline}</p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#projects">
-              Xem case study
-            </a>
-            <a className="button button-secondary" href={gmailUrl} target="_blank" rel="noreferrer">
+            <a className="button button-primary" href={gmailUrl} target="_blank" rel="noreferrer">
               Gửi email
             </a>
+            <a className="button button-tonal" href={profile.projectUrl} target="_blank" rel="noreferrer">
+              Xem GitHub
+            </a>
+          </div>
+          <div className="stack-badges" aria-label="Tech stack chính">
+            {stackBadges.slice(0, 7).map(([label, icon]) => (
+              <span className="tech-badge" key={label}>
+                <span>{icon}</span>
+                {label}
+              </span>
+            ))}
           </div>
         </div>
 
-        <div className="launch-board" aria-label="Bảng trình bày ứng dụng mobile">
-          <article className="app-window app-window-main image-lift">
-            <div className="window-bar">
-              <span />
-              <span />
-              <span />
-            </div>
-            <img src={homeScreen} alt="Màn hình trang chủ ứng dụng quản lý chi tiêu" />
-          </article>
-          <article className="app-window phone-preview">
-            <img src={toolsScreen} alt="Màn hình công cụ trong ứng dụng quản lý chi tiêu" />
-            <div>
-              <span>{profile.name}</span>
-              <strong>{profile.role} tại Hà Nội</strong>
-            </div>
-          </article>
-          <article className="app-window launch-note">
-            <span>Giá trị mang lại</span>
-            <h2>Ứng dụng Flutter rõ luồng, chạy ổn và đủ chỉn chu để demo.</h2>
-          </article>
+        <div className="hero-device image-lift">
+          <PhoneMockup src={homeScreen} alt="Màn hình trang chủ ứng dụng Tiết Kiệm Chi Tiêu" />
+          <div className="device-caption">
+            <span>{profile.name}</span>
+            <strong>{profile.role}</strong>
+            <p>Ứng dụng quản lý tài chính cá nhân viết bằng Flutter, tối ưu cho Android và trải nghiệm offline-first.</p>
+          </div>
         </div>
       </section>
 
       <section id="stack" className="stack-section">
         <div className="section-heading">
           <h2>
-            Tech Stack <span className="inline-media" /> được trình bày theo năng lực thật.
+            Tech Stack <span className="inline-media" /> gọn, rõ, đúng chất Mobile.
           </h2>
           <p>
-            Tôi không chỉ liệt kê công nghệ. Mỗi nhóm kỹ năng thể hiện một phần của quá trình xây dựng
-            ứng dụng Flutter: giao diện, điều hướng, dữ liệu cục bộ, đồng bộ và quy trình bàn giao.
+            Các công nghệ được gom theo nhóm năng lực thay vì trình bày thành đoạn chữ dài. Mỗi badge có
+            thể thay bằng Devicon hoặc Simple Icons khi bạn muốn dùng icon thật.
           </p>
+        </div>
+
+        <div className="badge-wall">
+          {stackBadges.map(([label, icon]) => (
+            <span className="tech-badge tech-badge-large" key={label}>
+              <span>{icon}</span>
+              {label}
+            </span>
+          ))}
         </div>
 
         <div className="tech-grid">
@@ -229,11 +252,11 @@ function App() {
               dữ liệu offline-first và khả năng phát triển tiếp trong môi trường thực tế.
             </p>
           </article>
-          {techGroups.map((group) => (
-            <article className="tech-card" key={group.title}>
-              <span>{group.title}</span>
-              <h3>{group.lead}</h3>
-              <p>{group.text}</p>
+          {techCards.map((card) => (
+            <article className="tech-card" key={card.title}>
+              <span>{card.title}</span>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
             </article>
           ))}
         </div>
@@ -243,15 +266,19 @@ function App() {
         <div className="section-heading compact">
           <h2>Case Study: Tiết Kiệm Chi Tiêu</h2>
           <p>
-            Dự án mobile nổi bật nhất của tôi: một ứng dụng quản lý tài chính cá nhân viết bằng Flutter,
+            Dự án mobile nổi bật nhất của tôi: ứng dụng quản lý tài chính cá nhân viết bằng Flutter,
             tối ưu cho Android, hỗ trợ offline-first và theo dõi thu chi hằng ngày.
           </p>
         </div>
 
         <div className="case-layout">
           <div className="case-visual image-lift">
-            <img src={walletScreen} alt="Màn hình tạo ví trong ứng dụng quản lý chi tiêu" />
-            <p>Ảnh chụp giao diện thật của Tiết Kiệm Chi Tiêu: tạo ví, chọn loại ví, tùy chỉnh màu sắc và biểu tượng.</p>
+            <PhoneMockup src={walletScreen} alt="Màn hình tạo ví trong ứng dụng Tiết Kiệm Chi Tiêu" />
+            <div className="video-note">
+              <strong>Gợi ý video demo</strong>
+              <code>{`<video src="/demo.mp4" autoPlay loop muted playsInline />`}</code>
+              <p>Có thể thay ảnh tĩnh bằng video/GIF demo thao tác tạo ví, thêm giao dịch và xem thống kê.</p>
+            </div>
           </div>
           <div className="case-timeline">
             {caseSteps.map((step, index) => (
@@ -265,8 +292,8 @@ function App() {
               <a className="button button-primary" href={profile.projectUrl} target="_blank" rel="noreferrer">
                 Xem code trên GitHub
               </a>
-              <a className="button button-secondary" href={gmailUrl} target="_blank" rel="noreferrer">
-                Hẹn trao đổi demo
+              <a className="button button-outlined" href={profile.zalo}>
+                Gọi Zalo
               </a>
             </div>
           </div>
@@ -275,7 +302,7 @@ function App() {
 
       <section className="marquee-section" aria-label="Kỹ năng lập trình mobile">
         <div className="marquee-track">
-          {[...skills, ...skills].map((skill, index) => (
+          {[...skillMarquee, ...skillMarquee].map((skill, index) => (
             <span key={`${skill}-${index}`}>{skill}</span>
           ))}
         </div>
@@ -287,11 +314,10 @@ function App() {
           <h2>Tôi chọn Mobile vì đây là nơi phần mềm chạm vào thói quen hằng ngày của người dùng.</h2>
           <p>
             Tôi là sinh viên chuẩn bị ra trường và đang định hướng trở thành Mobile Developer chuyên về
-            Flutter. Với tôi, một ứng dụng tốt không chỉ cần chạy đúng, mà còn phải nhanh, dễ hiểu, ổn
-            định và tạo cảm giác tin cậy. Tôi ưu tiên cách viết code rõ ràng, kiến trúc dễ bảo trì,
-            quản lý state có kiểm soát, luồng API dễ theo dõi và giao diện đặt trải nghiệm người dùng
-            lên đầu. Mục tiêu hiện tại của tôi là tiếp tục hoàn thiện kỹ năng Flutter, làm tốt trong môi
-            trường đội nhóm và xây dựng các sản phẩm mobile có giá trị thực tế.
+            Flutter. Tôi ưu tiên cách viết code rõ ràng, kiến trúc dễ bảo trì, quản lý state có kiểm
+            soát, luồng API dễ theo dõi và giao diện đặt trải nghiệm người dùng lên đầu. Mục tiêu hiện
+            tại của tôi là tiếp tục hoàn thiện kỹ năng Flutter, làm tốt trong môi trường đội nhóm và xây
+            dựng các sản phẩm mobile có giá trị thực tế.
           </p>
         </div>
         <div className="proof-card">
@@ -316,7 +342,7 @@ function App() {
             kết quả vào PostgreSQL, gửi sự kiện nhận diện sang Core Service và cung cấp REST API,
             OpenAPI cùng giao diện web demo trực tiếp.
           </p>
-          <a className="button button-primary" href={profile.aiVisionUrl} target="_blank" rel="noreferrer">
+          <a className="button button-tonal" href={profile.aiVisionUrl} target="_blank" rel="noreferrer">
             Xem dự án AI Vision
           </a>
         </div>
@@ -336,10 +362,10 @@ function App() {
           <a className="button button-primary" href={gmailUrl} target="_blank" rel="noreferrer">
             Gửi email
           </a>
-          <a className="button button-secondary" href={profile.github} target="_blank" rel="noreferrer">
+          <a className="button button-tonal" href={profile.github} target="_blank" rel="noreferrer">
             Xem GitHub
           </a>
-          <a className="button button-secondary" href={profile.zalo}>
+          <a className="button button-outlined" href={profile.zalo}>
             Gọi Zalo
           </a>
         </div>
