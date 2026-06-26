@@ -12,65 +12,58 @@ const profile = {
   focus: "Cross-platform Mobile Developer",
   email: "duytienkaka123az@gmail.com",
   github: "https://github.com/duytienkaka",
-  headline: "Xây dựng ứng dụng di động mượt, rõ luồng và dễ mở rộng.",
+  headline: "Thiết kế và xây dựng ứng dụng mobile mượt mà, dễ dùng, dễ mở rộng.",
   tagline:
-    "Tôi tập trung phát triển ứng dụng Flutter và React Native với kiến trúc sạch, giao diện chỉn chu, tích hợp API ổn định và trải nghiệm người dùng nhất quán.",
+    "Tôi phát triển ứng dụng Flutter và React Native với tư duy sản phẩm, kiến trúc sạch, tích hợp API ổn định và trải nghiệm người dùng được chăm chút từ những chi tiết nhỏ.",
 };
 
-const headlineOptions = [
-  {
-    title: "Ứng dụng mobile nhanh, sạch và đáng tin cậy.",
-    text: "Định hướng cross-platform với Flutter, React Native, Firebase, RESTful API và cấu trúc mã nguồn dễ bảo trì.",
-  },
-  {
-    title: "Biến ý tưởng mobile thành sản phẩm có thể trình bày.",
-    text: "Tôi xây dựng giao diện mượt, quản lý state rõ ràng, dữ liệu offline-first và repo sẵn sàng để nhà tuyển dụng xem nhanh.",
-  },
-];
+const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+  profile.email,
+)}&su=${encodeURIComponent("Trao đổi cơ hội hợp tác Mobile Developer")}&body=${encodeURIComponent(
+  "Chào Tiến,\n\nMình muốn trao đổi với bạn về một cơ hội/dự án mobile.\n\n",
+)}`;
 
-const stackGroups = [
+const techGroups = [
   {
     title: "Ngôn ngữ",
-    items: ["Dart", "JavaScript", "TypeScript", "Kotlin cơ bản"],
+    lead: "Dart",
+    text: "Dart, JavaScript, TypeScript, Kotlin cơ bản",
   },
   {
     title: "Framework",
-    items: ["Flutter", "React Native", "Bloc", "Provider"],
+    lead: "Flutter",
+    text: "Flutter, React Native, Bloc, Provider",
   },
   {
-    title: "Công cụ",
-    items: ["Firebase", "RESTful API", "Git", "GitHub Actions", "CI/CD"],
+    title: "Dữ liệu và API",
+    lead: "Firebase",
+    text: "Firebase Auth, RESTful API, local caching, offline-first flow",
   },
   {
-    title: "Chất lượng Mobile",
-    items: ["Clean Architecture", "Offline-first", "Caching", "Performance UI"],
+    title: "Quy trình",
+    lead: "Git",
+    text: "Git, GitHub, CI/CD, README, workflow deploy",
   },
 ];
 
-const project = {
-  name: "Ứng dụng Quản lý Chi tiêu",
-  functions: "Theo dõi thu chi, đặt hạn mức theo tháng, thống kê biểu đồ và xuất báo cáo.",
-  architecture: "MVVM, local caching, RESTful API, Firebase Auth, luồng dữ liệu offline-first.",
-  overview:
-    "Đây là ứng dụng tài chính cá nhân giúp người dùng nắm được thói quen chi tiêu hằng ngày qua giao diện nhập liệu nhanh, biểu đồ rõ ràng và khả năng sử dụng ổn định khi kết nối mạng không tốt.",
-  challenges: [
-    {
-      title: "Xử lý dữ liệu bất đồng bộ",
-      text: "Tôi tách rõ UI, business logic và repository để quá trình gọi API, cập nhật cache và hiển thị trạng thái tải dữ liệu dễ kiểm soát hơn.",
-    },
-    {
-      title: "Trải nghiệm offline-first",
-      text: "Ứng dụng ưu tiên đọc dữ liệu cục bộ trước, sau đó đồng bộ với dịch vụ từ xa khi có mạng, giúp giảm màn hình trống và tăng cảm giác phản hồi nhanh.",
-    },
-    {
-      title: "Giao diện mobile mượt mà",
-      text: "Các widget được tái sử dụng, vùng rebuild được giới hạn hợp lý và animation được dùng vừa đủ để danh sách giao dịch vẫn mượt khi dữ liệu tăng lên.",
-    },
-  ],
-};
-
-const aboutText =
-  "Tôi chọn lập trình Mobile vì ứng dụng trên điện thoại là sản phẩm phần mềm rất gần với đời sống hằng ngày của người dùng. Một ứng dụng tốt không chỉ cần chạy đúng, mà còn phải nhanh, dễ hiểu, ổn định và tạo cảm giác tin cậy. Triết lý viết code của tôi là giữ mọi thứ rõ ràng: kiến trúc dễ bảo trì, state management có kiểm soát, luồng API dễ theo dõi và giao diện đặt trải nghiệm người dùng lên đầu. Khi xây dựng một màn hình Flutter, kết nối Firebase, xử lý RESTful API hay chuẩn bị repo trên GitHub, tôi luôn nghĩ đến ba câu hỏi: người dùng có thao tác dễ không, lập trình viên khác có bảo trì được không, và sản phẩm này có đủ chỉn chu để demo thực tế không.";
+const caseSteps = [
+  {
+    title: "Bài toán sản phẩm",
+    text: "Người dùng cần ghi lại thu chi nhanh, xem xu hướng chi tiêu rõ ràng và theo dõi hạn mức hằng tháng mà không bị rối bởi quá nhiều thao tác.",
+  },
+  {
+    title: "Giải pháp kỹ thuật",
+    text: "Ứng dụng được tổ chức theo MVVM, tách UI, state, repository và service để luồng dữ liệu bất đồng bộ dễ kiểm soát, dễ mở rộng và dễ kiểm thử.",
+  },
+  {
+    title: "Trải nghiệm offline-first",
+    text: "Dữ liệu cục bộ được ưu tiên để người dùng vẫn xem được giao dịch khi mạng yếu, sau đó đồng bộ lại với API hoặc Firebase khi kết nối ổn định.",
+  },
+  {
+    title: "Kết quả mong muốn",
+    text: "Một case study rõ ràng trên website: có mockup điện thoại, mô tả chức năng, giải thích kỹ thuật và nút dẫn thẳng về GitHub để xem mã nguồn.",
+  },
+];
 
 const skills = [
   "Flutter",
@@ -79,10 +72,10 @@ const skills = [
   "Firebase",
   "Bloc",
   "RESTful API",
-  "Clean Architecture",
+  "MVVM",
   "Offline-first",
-  "Git",
-  "CI/CD",
+  "Clean Architecture",
+  "GitHub",
 ];
 
 function App() {
@@ -91,73 +84,55 @@ function App() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(".nav-shell", {
-        y: -28,
+        y: -26,
         opacity: 0,
         duration: 0.8,
         ease: "power3.out",
       });
 
-      gsap.from(".hero-kicker, .hero-title, .hero-copy, .hero-actions, .headline-options", {
-        y: 50,
+      gsap.from(".hero-kicker, .hero-title, .hero-copy, .hero-actions", {
+        y: 46,
         opacity: 0,
         duration: 1,
-        stagger: 0.08,
+        stagger: 0.09,
         ease: "power3.out",
       });
 
-      gsap.from(".phone-stage", {
-        y: 70,
-        rotate: -6,
-        scale: 0.86,
+      gsap.from(".app-window", {
+        y: 72,
+        scale: 0.9,
         opacity: 0,
         duration: 1.1,
+        stagger: 0.08,
         ease: "power3.out",
-        delay: 0.16,
-      });
-
-      gsap.to(".aura-one", {
-        x: 82,
-        y: -48,
-        duration: 8,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
-      gsap.to(".aura-two", {
-        x: -72,
-        y: 54,
-        duration: 9,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
+        delay: 0.18,
       });
 
       gsap.utils.toArray(".image-lift").forEach((image) => {
         gsap.fromTo(
           image,
-          { scale: 0.84, opacity: 0.45, filter: "brightness(0.95) contrast(0.92) saturate(0.72)" },
+          { scale: 0.86, opacity: 0.45, filter: "brightness(0.92) contrast(0.9) saturate(0.75)" },
           {
             scale: 1,
             opacity: 1,
-            filter: "brightness(1) contrast(1.04) saturate(0.9)",
+            filter: "brightness(1) contrast(1.05) saturate(0.95)",
             scrollTrigger: {
               trigger: image,
               start: "top 90%",
-              end: "bottom 32%",
+              end: "bottom 35%",
               scrub: true,
             },
           },
         );
       });
 
-      gsap.utils.toArray(".challenge-card").forEach((card, index) => {
+      gsap.utils.toArray(".case-step").forEach((card, index) => {
         gsap.to(card, {
-          yPercent: -7 * index,
-          scale: 1 - index * 0.028,
+          yPercent: -6 * index,
+          scale: 1 - index * 0.02,
           scrollTrigger: {
             trigger: card,
-            start: "top 74%",
+            start: "top 78%",
             end: "bottom 24%",
             scrub: true,
           },
@@ -176,9 +151,9 @@ function App() {
         </a>
         <div className="nav-center">
           <a href="#home">Trang chủ</a>
+          <a href="#stack">Kỹ năng</a>
           <a href="#projects">Dự án</a>
           <a href="#about">Giới thiệu</a>
-          <a href="#contact">Liên hệ</a>
         </div>
         <a className="nav-action" href={profile.github} target="_blank" rel="noreferrer">
           GitHub
@@ -186,9 +161,8 @@ function App() {
       </nav>
 
       <section id="home" className="hero-section">
-        <div className="aura aura-one" />
-        <div className="aura aura-two" />
-        <div className="hero-grid-bg" />
+        <div className="hero-orb hero-orb-one" />
+        <div className="hero-orb hero-orb-two" />
 
         <div className="hero-content">
           <p className="hero-kicker">{profile.focus} / Flutter / React Native</p>
@@ -198,63 +172,60 @@ function App() {
             <a className="button button-primary" href="#projects">
               Xem case study
             </a>
-            <a className="button button-secondary" href={profile.github} target="_blank" rel="noreferrer">
-              Xem GitHub
+            <a className="button button-secondary" href={gmailUrl} target="_blank" rel="noreferrer">
+              Gửi email
             </a>
-          </div>
-          <div className="headline-options" aria-label="Hai phiên bản định vị cá nhân">
-            {headlineOptions.map((item) => (
-              <article key={item.title}>
-                <strong>{item.title}</strong>
-                <p>{item.text}</p>
-              </article>
-            ))}
           </div>
         </div>
 
-        <aside className="phone-stage image-lift" aria-label="Khung xem trước ứng dụng mobile">
-          <div className="phone-frame">
-            <div className="phone-notch" />
-            <img src="https://picsum.photos/seed/mobile-app-showcase-vietnam/820/1420" alt="Mockup giao diện ứng dụng mobile" />
-            <div className="phone-overlay">
-              <span>{profile.name}</span>
-              <strong>Mobile app có kiến trúc sạch, giao diện mượt và luồng dữ liệu rõ ràng.</strong>
+        <div className="launch-board" aria-label="Bảng trình bày ứng dụng mobile">
+          <article className="app-window app-window-main image-lift">
+            <div className="window-bar">
+              <span />
+              <span />
+              <span />
             </div>
-          </div>
-        </aside>
+            <img src="https://picsum.photos/seed/mobile-finance-app-vn/1300/850" alt="Giao diện ứng dụng mobile" />
+          </article>
+          <article className="app-window phone-preview">
+            <img src="https://picsum.photos/seed/mobile-phone-budget-vn/760/1280" alt="Mockup điện thoại" />
+            <div>
+              <span>{profile.name}</span>
+              <strong>{profile.role}</strong>
+            </div>
+          </article>
+          <article className="app-window launch-note">
+            <span>Giá trị mang lại</span>
+            <h2>Ứng dụng rõ luồng, chạy ổn và đủ chỉn chu để demo.</h2>
+          </article>
+        </div>
       </section>
 
-      <section className="stack-section">
+      <section id="stack" className="stack-section">
         <div className="section-heading">
           <h2>
-            Tổng quan <span className="inline-media" /> Tech Stack.
+            Tech Stack <span className="inline-media" /> được trình bày theo năng lực thật.
           </h2>
           <p>
-            Các công nghệ nên được nhóm theo vai trò: Ngôn ngữ, Framework, Công cụ và Chất lượng Mobile.
-            Cách trình bày này giúp nhà tuyển dụng quét nhanh năng lực thay vì nhìn một danh sách rời rạc.
+            Tôi không chỉ liệt kê công nghệ. Mỗi nhóm kỹ năng thể hiện một phần của quá trình xây dựng
+            ứng dụng mobile: giao diện, dữ liệu, kiến trúc và quy trình bàn giao.
           </p>
         </div>
 
-        <div className="bento-grid">
-          <article className="bento-card bento-main">
-            <div className="bento-image">
-              <img className="image-lift" src="https://picsum.photos/seed/mobile-clean-architecture/1400/980" alt="Không gian lập trình mobile" />
-            </div>
-            <div>
-              <span>Định hướng chính</span>
-              <h3>Phát triển ứng dụng cross-platform có cấu trúc sẵn sàng mở rộng.</h3>
-              <p>
-                Flutter và React Native giúp tôi xây dựng trải nghiệm mobile nhanh, đồng bộ và dễ phát triển
-                tiếp mà vẫn giữ được tính rõ ràng của kiến trúc.
-              </p>
-            </div>
+        <div className="tech-grid">
+          <article className="tech-card tech-card-large">
+            <span>Định hướng chính</span>
+            <h3>Cross-platform mobile development</h3>
+            <p>
+              Tập trung vào Flutter và React Native để xây dựng ứng dụng có giao diện mượt, cấu trúc mã
+              nguồn dễ đọc và khả năng phát triển tiếp trong môi trường thực tế.
+            </p>
           </article>
-
-          {stackGroups.map((group) => (
-            <article className="bento-card stack-card-mini" key={group.title}>
+          {techGroups.map((group) => (
+            <article className="tech-card" key={group.title}>
               <span>{group.title}</span>
-              <h3>{group.items[0]}</h3>
-              <p>{group.items.join(" / ")}</p>
+              <h3>{group.lead}</h3>
+              <p>{group.text}</p>
             </article>
           ))}
         </div>
@@ -262,51 +233,35 @@ function App() {
 
       <section id="projects" className="project-section">
         <div className="section-heading compact">
-          <h2>Case Study Mobile Nổi Bật</h2>
+          <h2>Case Study: Ứng dụng Quản lý Chi tiêu</h2>
           <p>
-            Một repo GitHub sẽ thuyết phục hơn khi được kể như một câu chuyện sản phẩm: ứng dụng giải quyết
-            điều gì, bài toán kỹ thuật nằm ở đâu và mã nguồn chứng minh năng lực như thế nào.
+            Bố cục mới kể dự án theo hành trình: bài toán, giải pháp, trải nghiệm offline-first và kết
+            quả. Cách này giúp nhà tuyển dụng hiểu nhanh vai trò kỹ thuật của bạn trong sản phẩm.
           </p>
         </div>
 
-        <div className="case-study">
-          <div className="case-media image-lift">
-            <img src="https://picsum.photos/seed/expense-tracker-mobile-vn/900/1300" alt="Mockup ứng dụng quản lý chi tiêu" />
-            <p>Gợi ý: đặt một ảnh GIF ngắn tại đây để thể hiện thao tác nhập chi tiêu, cập nhật biểu đồ và xuất báo cáo.</p>
+        <div className="case-layout">
+          <div className="case-visual image-lift">
+            <img src="https://picsum.photos/seed/expense-mobile-case-study-vn/900/1280" alt="Mockup ứng dụng quản lý chi tiêu" />
+            <p>Vị trí phù hợp để thay bằng GIF demo thao tác: nhập giao dịch, xem biểu đồ, xuất báo cáo.</p>
           </div>
-          <div className="case-copy">
-            <span>{project.architecture}</span>
-            <h3>{project.name}</h3>
-            <p>{project.overview}</p>
-            <dl>
-              <div>
-                <dt>Chức năng chính</dt>
-                <dd>{project.functions}</dd>
-              </div>
-              <div>
-                <dt>Kiến trúc và thư viện</dt>
-                <dd>{project.architecture}</dd>
-              </div>
-            </dl>
+          <div className="case-timeline">
+            {caseSteps.map((step, index) => (
+              <article className="case-step" key={step.title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
             <div className="case-actions">
               <a className="button button-primary" href={profile.github} target="_blank" rel="noreferrer">
                 Xem code trên GitHub
               </a>
-              <a className="button button-secondary" href="#contact">
-                Trao đổi demo
+              <a className="button button-secondary" href={gmailUrl} target="_blank" rel="noreferrer">
+                Hẹn trao đổi demo
               </a>
             </div>
           </div>
-        </div>
-
-        <div className="challenge-grid">
-          {project.challenges.map((item, index) => (
-            <article className="challenge-card" key={item.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
         </div>
       </section>
 
@@ -319,23 +274,27 @@ function App() {
       </section>
 
       <section id="about" className="about-section">
-        <div className="about-layout">
-          <div>
-            <p className="section-kicker">Giới thiệu</p>
-            <h2>Vì sao tôi chọn lập trình Mobile.</h2>
-          </div>
-          <p className="about-story">{aboutText}</p>
+        <div className="about-card">
+          <p className="section-kicker">Giới thiệu</p>
+          <h2>Tôi chọn Mobile vì đây là nơi phần mềm chạm vào thói quen hằng ngày của người dùng.</h2>
+          <p>
+            Một ứng dụng tốt không chỉ cần chạy đúng, mà còn phải nhanh, dễ hiểu, ổn định và tạo cảm
+            giác tin cậy. Triết lý viết code của tôi là giữ mọi thứ rõ ràng: kiến trúc dễ bảo trì,
+            state management có kiểm soát, luồng API dễ theo dõi và giao diện đặt trải nghiệm người
+            dùng lên đầu. Khi xây dựng một màn hình Flutter, kết nối Firebase, xử lý RESTful API hay
+            chuẩn bị repo trên GitHub, tôi luôn nghĩ đến việc người dùng có thao tác dễ không, lập
+            trình viên khác có bảo trì được không và sản phẩm có đủ chỉn chu để demo thực tế không.
+          </p>
         </div>
-
         <div className="proof-card">
           <div className="avatar-stack">
-            <img src="https://picsum.photos/seed/mobile-lead-vietnam/240/240" alt="Chân dung người đánh giá" />
-            <img src="https://picsum.photos/seed/recruiter-mobile-vietnam/240/240" alt="Chân dung nhà tuyển dụng" />
-            <img src="https://picsum.photos/seed/product-mobile-vietnam/240/240" alt="Chân dung đồng đội" />
+            <img src="https://picsum.photos/seed/mobile-lead-vn-new/240/240" alt="Chân dung mentor" />
+            <img src="https://picsum.photos/seed/recruiter-vn-new/240/240" alt="Chân dung nhà tuyển dụng" />
+            <img src="https://picsum.photos/seed/mobile-team-vn-new/240/240" alt="Chân dung đồng đội" />
           </div>
           <blockquote>
-            Gợi ý tăng độ tin cậy: đặt lời nhận xét ngắn từ mentor, đồng đội hoặc leader tại đây, đồng thời
-            nhúng GitHub Contribution Graph để thể hiện sự đều đặn trong quá trình học và xây dựng dự án.
+            Có thể đặt lời nhận xét từ mentor, đồng đội hoặc leader tại đây, kèm GitHub Contribution
+            Graph để tăng độ tin cậy cho hồ sơ cá nhân.
           </blockquote>
         </div>
       </section>
@@ -343,14 +302,14 @@ function App() {
       <footer id="contact" className="footer-section">
         <div>
           <p className="footer-kicker">Liên hệ</p>
-          <h2>Bạn đang tìm một lập trình viên Mobile có thể xây, hoàn thiện và triển khai sản phẩm?</h2>
+          <h2>Sẵn sàng trao đổi về một cơ hội Mobile Developer?</h2>
           <p>
-            Tôi sẵn sàng trao đổi về cơ hội thực tập, cộng tác dự án hoặc các ý tưởng ứng dụng mobile.
-            Hãy liên hệ qua email hoặc GitHub để cùng biến một ý tưởng tốt thành trải nghiệm di động chỉn chu.
+            Nếu bạn đang tìm một lập trình viên có thể xây dựng giao diện mobile, tích hợp API, chăm
+            chút trải nghiệm và trình bày sản phẩm rõ ràng, hãy gửi email cho tôi.
           </p>
         </div>
         <div className="footer-actions">
-          <a className="button button-primary" href={`mailto:${profile.email}`}>
+          <a className="button button-primary" href={gmailUrl} target="_blank" rel="noreferrer">
             Gửi email
           </a>
           <a className="button button-secondary" href={profile.github} target="_blank" rel="noreferrer">
