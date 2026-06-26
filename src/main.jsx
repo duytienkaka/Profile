@@ -8,94 +8,81 @@ gsap.registerPlugin(ScrollTrigger);
 
 const profile = {
   name: "Nguyen Duy Tien",
-  role: "Full-stack Developer",
+  role: "Mobile Developer",
+  focus: "Cross-platform Mobile Developer",
   email: "duytienkaka123az@gmail.com",
-  location: "Ho Chi Minh City, Vietnam",
-  tagline: "Build clean web products. Ship real outcomes.",
-  intro:
-    "I design and build modern web interfaces, reliable APIs, and deployable product demos for recruiters, teams, and real users. My work focuses on clarity, performance, and a polished experience from first screen to public URL.",
+  github: "https://github.com/duytienkaka",
+  headline: "Cross-platform Mobile Developer building smooth, scalable apps.",
+  tagline:
+    "I craft Flutter and React Native mobile experiences with clean architecture, responsive UI, reliable API integration, and a strong focus on performance.",
 };
 
-const highlights = [
+const headlineOptions = [
   {
-    value: "Full-stack",
-    title: "Product mindset",
-    text: "I connect frontend, backend, data, auth, and deployment into one understandable product flow.",
+    title: "Mobile apps that feel fast, clean, and reliable.",
+    text: "Cross-platform developer focused on Flutter, React Native, Firebase, RESTful API integration, and maintainable app architecture.",
   },
   {
-    value: "Public-ready",
-    title: "GitHub Pages deployment",
-    text: "This profile is not a static mockup. It builds, deploys, and updates automatically after every push.",
-  },
-  {
-    value: "Demo-first",
-    title: "Clear presentation",
-    text: "Projects are shaped so recruiters and teammates can quickly see what the system does and why it matters.",
-  },
-  {
-    value: "Clean handoff",
-    title: "Readable repo",
-    text: "Code structure, README, workflow, and build scripts are kept simple enough for another developer to continue.",
+    title: "Turning mobile ideas into polished product experiences.",
+    text: "I build user-centered applications with smooth UI, clean state management, offline-aware data flows, and production-ready code structure.",
   },
 ];
 
-const projects = [
+const stackGroups = [
   {
-    name: "Academic Service Platform",
-    type: "Full-stack system",
-    description:
-      "A student, course, attendance, and payment workflow designed around role-based usage and service integration.",
-    stack: "React / .NET / SQL Server / JWT",
-    image: "https://picsum.photos/seed/light-academic-dashboard/1400/1000",
+    title: "Languages",
+    items: ["Dart", "JavaScript", "TypeScript", "Kotlin basics"],
   },
   {
-    name: "Teacher Demo Workspace",
-    type: "Interactive UI",
-    description:
-      "A teacher-facing workspace focused on clean navigation, fast understanding, and confident live presentation.",
-    stack: "Vue / REST API / Swagger",
-    image: "https://picsum.photos/seed/bright-teacher-interface/1200/900",
+    title: "Frameworks",
+    items: ["Flutter", "React Native", "Bloc", "Provider"],
   },
   {
-    name: "Payment Integration Flow",
-    type: "API integration",
-    description:
-      "A payment and debt-checking flow with token-based communication between frontend and backend services.",
-    stack: "Axios / JWT / API Contracts",
-    image: "https://picsum.photos/seed/fintech-api-board/1200/900",
+    title: "Tools",
+    items: ["Firebase", "RESTful API", "Git", "GitHub Actions", "CI/CD"],
+  },
+  {
+    title: "Mobile Quality",
+    items: ["Clean Architecture", "Offline-first", "Caching", "Performance UI"],
   },
 ];
+
+const project = {
+  name: "Expense Tracker Mobile App",
+  functions: "Track income and expenses, set monthly budgets, analyze spending, and export reports.",
+  architecture: "MVVM, local caching, RESTful API, Firebase Auth, offline-first data flow.",
+  overview:
+    "A personal finance mobile app designed to help users understand daily spending habits through clean charts, fast input flows, and reliable offline usage. The project section is built to support a phone mockup GIF, so recruiters can understand the product in seconds.",
+  challenges: [
+    {
+      title: "Asynchronous data flow",
+      text: "I separated UI state, business logic, and repository layers so API calls, local cache updates, and loading states remain predictable and easy to test.",
+    },
+    {
+      title: "Offline-first experience",
+      text: "The app prioritizes local data access first, then syncs with remote services when a connection is available, reducing blank screens and improving perceived performance.",
+    },
+    {
+      title: "Smooth mobile UI",
+      text: "Reusable widgets, optimized rebuild boundaries, and simple animation patterns help the interface stay responsive even when transaction lists grow.",
+    },
+  ],
+};
+
+const aboutWords =
+  "I chose mobile development because a smartphone app is often the closest software product to a user's daily life. A good app must be fast, useful, intuitive, and trustworthy. My coding philosophy is simple: write clean, maintainable code that supports a smooth user experience. I care about readable architecture, clear state management, predictable API integration, and UI details that make an app feel professional. Whether I am building a Flutter screen, connecting Firebase, handling RESTful APIs, or preparing a GitHub repository, I try to think beyond the feature itself: how will another developer maintain it, how will a user experience it, and how confidently can it be presented in a real demo?";
 
 const skills = [
-  "React",
-  "Vite",
-  "JavaScript",
-  "HTML/CSS",
-  ".NET APIs",
-  "SQL Server",
-  "JWT Auth",
-  "Swagger",
-  "GitHub Pages",
-  "GSAP Motion",
-];
-
-const process = [
-  {
-    title: "Frame the product",
-    text: "Define the audience, core flow, data needs, and what the final demo must prove.",
-  },
-  {
-    title: "Design the experience",
-    text: "Create a visual hierarchy that feels sharp, readable, responsive, and memorable.",
-  },
-  {
-    title: "Build the system",
-    text: "Implement UI, API contracts, authentication flow, build scripts, and deployment workflow.",
-  },
-  {
-    title: "Publish and refine",
-    text: "Ship to a public URL, test the live page, then keep improving through normal git pushes.",
-  },
+  "Flutter",
+  "React Native",
+  "Dart",
+  "Firebase",
+  "Bloc",
+  "RESTful API",
+  "Clean Architecture",
+  "Offline-first",
+  "Git",
+  "CI/CD",
 ];
 
 function App() {
@@ -110,17 +97,17 @@ function App() {
         ease: "power3.out",
       });
 
-      gsap.from(".hero-kicker, .hero-title, .hero-copy, .hero-actions, .signal-strip", {
-        y: 52,
+      gsap.from(".hero-kicker, .hero-title, .hero-copy, .hero-actions, .headline-options", {
+        y: 50,
         opacity: 0,
         duration: 1,
         stagger: 0.08,
         ease: "power3.out",
       });
 
-      gsap.from(".hero-device", {
-        y: 58,
-        rotateX: 12,
+      gsap.from(".phone-stage", {
+        y: 60,
+        rotate: 4,
         scale: 0.88,
         opacity: 0,
         duration: 1.1,
@@ -129,8 +116,8 @@ function App() {
       });
 
       gsap.to(".aura-one", {
-        x: 96,
-        y: -54,
+        x: 86,
+        y: -52,
         duration: 8,
         repeat: -1,
         yoyo: true,
@@ -138,8 +125,8 @@ function App() {
       });
 
       gsap.to(".aura-two", {
-        x: -76,
-        y: 60,
+        x: -74,
+        y: 58,
         duration: 9,
         repeat: -1,
         yoyo: true,
@@ -151,8 +138,8 @@ function App() {
           opacity: 1,
           y: 0,
           scrollTrigger: {
-            trigger: ".brand-statement",
-            start: `top+=${index * 7} 84%`,
+            trigger: ".about-story",
+            start: `top+=${index * 6} 84%`,
             end: "bottom 40%",
             scrub: true,
           },
@@ -177,10 +164,10 @@ function App() {
         );
       });
 
-      gsap.utils.toArray(".stack-card").forEach((card, index) => {
+      gsap.utils.toArray(".challenge-card").forEach((card, index) => {
         gsap.to(card, {
-          yPercent: -8 * index,
-          scale: 1 - index * 0.03,
+          yPercent: -7 * index,
+          scale: 1 - index * 0.028,
           scrollTrigger: {
             trigger: card,
             start: "top 74%",
@@ -201,12 +188,13 @@ function App() {
           DT
         </a>
         <div className="nav-center">
-          <a href="#profile">Profile</a>
-          <a href="#work">Work</a>
-          <a href="#process">Process</a>
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </div>
-        <a className="nav-action" href={`mailto:${profile.email}`}>
-          Contact
+        <a className="nav-action" href={profile.github} target="_blank" rel="noreferrer">
+          GitHub
         </a>
       </nav>
 
@@ -216,140 +204,117 @@ function App() {
         <div className="hero-grid-bg" />
 
         <div className="hero-content">
-          <p className="hero-kicker">{profile.role} / Personal Portfolio</p>
-          <h1 className="hero-title">{profile.tagline}</h1>
-          <p className="hero-copy">{profile.intro}</p>
+          <p className="hero-kicker">{profile.focus} / Flutter / React Native</p>
+          <h1 className="hero-title">{profile.headline}</h1>
+          <p className="hero-copy">{profile.tagline}</p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#work">
-              Explore work
+            <a className="button button-primary" href="#projects">
+              View case study
             </a>
-            <a className="button button-secondary" href={`mailto:${profile.email}`}>
-              Start a conversation
+            <a className="button button-secondary" href={profile.github} target="_blank" rel="noreferrer">
+              View GitHub
             </a>
           </div>
-          <div className="signal-strip" aria-label="Profile highlights">
-            <span>{profile.location}</span>
-            <span>Available for internship</span>
-            <span>Public GitHub workflow</span>
+          <div className="headline-options" aria-label="Alternative profile headlines">
+            {headlineOptions.map((item) => (
+              <article key={item.title}>
+                <strong>{item.title}</strong>
+                <p>{item.text}</p>
+              </article>
+            ))}
           </div>
         </div>
 
-        <aside className="hero-device image-lift" aria-label="Developer identity card">
-          <div className="device-topbar">
-            <span />
-            <span />
-            <span />
-          </div>
-          <img src="https://picsum.photos/seed/clean-developer-studio/1000/1180" alt="Clean developer workspace" />
-          <div className="identity-card">
-            <p>{profile.name}</p>
-            <strong>System-minded developer with an eye for product detail.</strong>
+        <aside className="phone-stage image-lift" aria-label="Mobile app preview">
+          <div className="phone-frame">
+            <div className="phone-notch" />
+            <img src="https://picsum.photos/seed/mobile-app-dashboard/820/1420" alt="Mobile app dashboard mockup" />
+            <div className="phone-overlay">
+              <span>{profile.name}</span>
+              <strong>Mobile apps with clean architecture and smooth UX.</strong>
+            </div>
           </div>
         </aside>
       </section>
 
-      <section id="profile" className="profile-section">
+      <section className="stack-section">
         <div className="section-heading">
           <h2>
-            A profile <span className="inline-media" /> built to feel bright, sharp and credible.
+            Tech Stack <span className="inline-media" /> Overview.
           </h2>
           <p>
-            Instead of a dark one-page card, this version presents a stronger personal brand: clearer
-            positioning, brighter visual energy, and proof that the portfolio is deployable.
+            Logos and skills should be grouped by role: Languages, Frameworks, Tools, and Mobile
+            Quality. This makes the stack easy to scan instead of feeling like a random list.
           </p>
         </div>
 
         <div className="bento-grid">
           <article className="bento-card bento-main">
             <div className="bento-image">
-              <img className="image-lift" src="https://picsum.photos/seed/whiteboard-product-code/1400/980" alt="Product planning and code workspace" />
+              <img className="image-lift" src="https://picsum.photos/seed/flutter-code-mobile/1400/980" alt="Mobile development workspace" />
             </div>
             <div>
-              <span>Personal brand</span>
-              <h3>Clean web products, from interface to deployment.</h3>
+              <span>Main direction</span>
+              <h3>Cross-platform mobile development with product-ready structure.</h3>
               <p>
-                I bring together UI craft, API thinking, deployment discipline, and demo clarity so a
-                project can move from local code to a public URL with confidence.
+                Flutter and React Native help me build mobile experiences that can move fast without
+                sacrificing maintainability, UI consistency, or deployment readiness.
               </p>
             </div>
           </article>
 
-          <article className="bento-card metric-card">
-            <strong>01</strong>
-            <p>public portfolio with automatic GitHub Pages deployment.</p>
-          </article>
-
-          <article className="bento-card glow-card">
-            <span>Core value</span>
-            <h3>Build it clearly. Ship it properly.</h3>
-            <p>Good code should be readable, useful, and easy to present.</p>
-          </article>
-
-          <article className="bento-card">
-            <span>Strength</span>
-            <h3>Frontend polish</h3>
-            <p>Responsive layouts, readable hierarchy, meaningful motion, and strong first impressions.</p>
-          </article>
-
-          <article className="bento-card">
-            <span>Strength</span>
-            <h3>Integration logic</h3>
-            <p>REST APIs, auth flow, data contracts, Swagger checks, and practical deployment habits.</p>
-          </article>
-        </div>
-      </section>
-
-      <section className="statement-section">
-        <p className="brand-statement">
-          {"I want every project in my portfolio to prove three things: I understand users, I can build the system, and I can ship it to a real public link."
-            .split(" ")
-            .map((word, index) => (
-              <span className="reveal-word" key={`${word}-${index}`}>
-                {word}{" "}
-              </span>
-            ))}
-        </p>
-      </section>
-
-      <section id="work" className="work-section">
-        <div className="section-heading compact">
-          <h2>Selected work</h2>
-          <p>Three project directions that make the profile useful for recruiters, teammates, and future clients.</p>
-        </div>
-        <div className="project-rail">
-          {projects.map((project) => (
-            <article className="project-card" key={project.name}>
-              <img className="image-lift" src={project.image} alt={project.name} />
-              <div>
-                <span>{project.type}</span>
-                <h3>{project.name}</h3>
-                <p>{project.description}</p>
-                <small>{project.stack}</small>
-              </div>
+          {stackGroups.map((group) => (
+            <article className="bento-card stack-card-mini" key={group.title}>
+              <span>{group.title}</span>
+              <h3>{group.items[0]}</h3>
+              <p>{group.items.join(" / ")}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="marquee-section" aria-label="Skills">
-        <div className="marquee-track">
-          {[...skills, ...skills].map((skill, index) => (
-            <span key={`${skill}-${index}`}>{skill}</span>
-          ))}
-        </div>
-      </section>
-
-      <section id="process" className="process-section">
-        <div className="process-copy">
-          <h2>How I move from idea to live product.</h2>
+      <section id="projects" className="project-section">
+        <div className="section-heading compact">
+          <h2>Featured Mobile Case Study</h2>
           <p>
-            The strongest portfolio is not only beautiful. It shows a working habit: understand the
-            problem, shape the experience, build the system, and publish it cleanly.
+            A GitHub repository becomes more impressive when it is framed as a product story: what the
+            app does, what technical problems were solved, and how the code proves your ability.
           </p>
         </div>
-        <div className="stack-list">
-          {process.map((item, index) => (
-            <article className="stack-card" key={item.title}>
+
+        <div className="case-study">
+          <div className="case-media image-lift">
+            <img src="https://picsum.photos/seed/expense-tracker-phone/900/1300" alt="Expense tracker app phone mockup" />
+            <p>Suggested placement: add a short GIF mockup here showing budget input, chart updates, and report export.</p>
+          </div>
+          <div className="case-copy">
+            <span>{project.architecture}</span>
+            <h3>{project.name}</h3>
+            <p>{project.overview}</p>
+            <dl>
+              <div>
+                <dt>Main features</dt>
+                <dd>{project.functions}</dd>
+              </div>
+              <div>
+                <dt>Architecture and libraries</dt>
+                <dd>{project.architecture}</dd>
+              </div>
+            </dl>
+            <div className="case-actions">
+              <a className="button button-primary" href={profile.github} target="_blank" rel="noreferrer">
+                View Code on GitHub
+              </a>
+              <a className="button button-secondary" href="#contact">
+                Request demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="challenge-grid">
+          {project.challenges.map((item, index) => (
+            <article className="challenge-card" key={item.title}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
@@ -358,32 +323,59 @@ function App() {
         </div>
       </section>
 
-      <section className="testimonial-section">
-        <div className="quote-card">
+      <section className="marquee-section" aria-label="Mobile development skills">
+        <div className="marquee-track">
+          {[...skills, ...skills].map((skill, index) => (
+            <span key={`${skill}-${index}`}>{skill}</span>
+          ))}
+        </div>
+      </section>
+
+      <section id="about" className="about-section">
+        <div className="about-layout">
+          <div>
+            <p className="section-kicker">About Me</p>
+            <h2>Why I choose Mobile Development.</h2>
+          </div>
+          <p className="about-story">
+            {aboutWords.split(" ").map((word, index) => (
+              <span className="reveal-word" key={`${word}-${index}`}>
+                {word}{" "}
+              </span>
+            ))}
+          </p>
+        </div>
+
+        <div className="proof-card">
           <div className="avatar-stack">
-            <img src="https://picsum.photos/seed/recruiter-review/240/240" alt="Reviewer portrait" />
-            <img src="https://picsum.photos/seed/team-lead-review/240/240" alt="Team lead portrait" />
-            <img src="https://picsum.photos/seed/client-review/240/240" alt="Client portrait" />
+            <img src="https://picsum.photos/seed/mobile-lead-review/240/240" alt="Team lead portrait" />
+            <img src="https://picsum.photos/seed/recruiter-mobile-review/240/240" alt="Recruiter portrait" />
+            <img src="https://picsum.photos/seed/product-review-mobile/240/240" alt="Product reviewer portrait" />
           </div>
           <blockquote>
-            A memorable developer profile should make the viewer think: this person can communicate,
-            build, deploy, and keep improving.
+            Social proof suggestion: place a short testimonial from a mentor, teammate, or team lead
+            here, and embed your GitHub Contribution Graph nearby to reinforce consistency.
           </blockquote>
         </div>
       </section>
 
       <footer id="contact" className="footer-section">
         <div>
-          <p className="footer-kicker">Ready for the next update</p>
-          <h2>Push new code, and the public profile updates itself.</h2>
+          <p className="footer-kicker">Contact</p>
+          <h2>Looking for a mobile developer who can build, polish, and ship?</h2>
           <p>
-            This portfolio is already connected to GitHub Pages. Future changes only need a commit and
-            push to refresh the live website.
+            I am open to internship opportunities, collaboration, and mobile product ideas. Reach out
+            via email or GitHub, and let us turn a strong concept into a clean mobile experience.
           </p>
         </div>
-        <a className="button button-primary" href={`mailto:${profile.email}`}>
-          {profile.email}
-        </a>
+        <div className="footer-actions">
+          <a className="button button-primary" href={`mailto:${profile.email}`}>
+            Email me
+          </a>
+          <a className="button button-secondary" href={profile.github} target="_blank" rel="noreferrer">
+            GitHub profile
+          </a>
+        </div>
       </footer>
     </main>
   );
