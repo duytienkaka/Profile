@@ -3,6 +3,9 @@ import { createRoot } from "react-dom/client";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./styles.css";
+import homeScreen from "./assests/Screenshot_20260626-204720.jpg";
+import toolsScreen from "./assests/Screenshot_20260626-204742.jpg";
+import walletScreen from "./assests/Screenshot_20260626-204804.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -185,10 +188,10 @@ function App() {
               <span />
               <span />
             </div>
-            <img src="https://picsum.photos/seed/mobile-finance-app-vn/1300/850" alt="Giao diện ứng dụng mobile" />
+            <img src={homeScreen} alt="Màn hình trang chủ ứng dụng quản lý chi tiêu" />
           </article>
           <article className="app-window phone-preview">
-            <img src="https://picsum.photos/seed/mobile-phone-budget-vn/760/1280" alt="Mockup điện thoại" />
+            <img src={toolsScreen} alt="Màn hình công cụ trong ứng dụng quản lý chi tiêu" />
             <div>
               <span>{profile.name}</span>
               <strong>{profile.role}</strong>
@@ -242,8 +245,8 @@ function App() {
 
         <div className="case-layout">
           <div className="case-visual image-lift">
-            <img src="https://picsum.photos/seed/expense-mobile-case-study-vn/900/1280" alt="Mockup ứng dụng quản lý chi tiêu" />
-            <p>Vị trí phù hợp để thay bằng GIF demo thao tác: nhập giao dịch, xem biểu đồ, xuất báo cáo.</p>
+            <img src={walletScreen} alt="Màn hình tạo ví trong ứng dụng quản lý chi tiêu" />
+            <p>Ảnh chụp giao diện thật của ứng dụng: tạo ví, chọn loại ví, tùy chỉnh màu sắc và biểu tượng.</p>
           </div>
           <div className="case-timeline">
             {caseSteps.map((step, index) => (
@@ -287,10 +290,10 @@ function App() {
           </p>
         </div>
         <div className="proof-card">
-          <div className="avatar-stack">
-            <img src="https://picsum.photos/seed/mobile-lead-vn-new/240/240" alt="Chân dung mentor" />
-            <img src="https://picsum.photos/seed/recruiter-vn-new/240/240" alt="Chân dung nhà tuyển dụng" />
-            <img src="https://picsum.photos/seed/mobile-team-vn-new/240/240" alt="Chân dung đồng đội" />
+          <div className="proof-badges" aria-label="Các điểm chứng minh năng lực">
+            <span>GitHub</span>
+            <span>Demo App</span>
+            <span>UI Mobile</span>
           </div>
           <blockquote>
             Có thể đặt lời nhận xét từ mentor, đồng đội hoặc leader tại đây, kèm GitHub Contribution
