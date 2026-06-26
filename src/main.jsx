@@ -31,17 +31,50 @@ const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURICompo
 )}`;
 
 const stackBadges = [
-  ["Dart", "D"],
-  ["Flutter", "F"],
-  ["Material 3", "M3"],
-  ["Riverpod", "R"],
-  ["go_router", "Go"],
-  ["Drift SQLite", "SQL"],
-  ["Supabase", "S"],
-  ["Firebase", "Fb"],
-  ["RESTful API", "API"],
-  ["Git", "Git"],
-  ["GitHub", "GH"],
+  {
+    label: "Dart",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+  },
+  {
+    label: "Flutter",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+  },
+  {
+    label: "Material 3",
+    fallback: "M3",
+  },
+  {
+    label: "Riverpod",
+    fallback: "RP",
+  },
+  {
+    label: "go_router",
+    fallback: "Go",
+  },
+  {
+    label: "Drift SQLite",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+  },
+  {
+    label: "Supabase",
+    icon: "https://cdn.simpleicons.org/supabase/3ECF8E",
+  },
+  {
+    label: "Firebase",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+  },
+  {
+    label: "RESTful API",
+    fallback: "API",
+  },
+  {
+    label: "Git",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  },
+  {
+    label: "GitHub",
+    icon: "https://cdn.simpleicons.org/github/FFFFFF",
+  },
 ];
 
 const techCards = [
@@ -95,12 +128,16 @@ const skillMarquee = [
   "GitHub",
 ];
 
-function PhoneMockup({ src, alt, className = "" }) {
+function PhoneMockup({ src, alt, className = "", mediaType = "image" }) {
   return (
     <div className={`phone-mockup ${className}`}>
       <div className="phone-speaker" />
       <div className="phone-screen">
-        <img src={src} alt={alt} />
+        {mediaType === "video" ? (
+          <video src={src} aria-label={alt} autoPlay loop muted playsInline />
+        ) : (
+          <img src={src} alt={alt} />
+        )}
       </div>
     </div>
   );
@@ -199,15 +236,17 @@ function App() {
             <a className="button button-primary" href={gmailUrl} target="_blank" rel="noreferrer">
               Gửi email
             </a>
-            <a className="button button-tonal" href={profile.projectUrl} target="_blank" rel="noreferrer">
+            <a className="button button-primary" href={profile.projectUrl} target="_blank" rel="noreferrer">
               Xem GitHub
             </a>
           </div>
           <div className="stack-badges" aria-label="Tech stack chính">
-            {stackBadges.slice(0, 7).map(([label, icon]) => (
-              <span className="tech-badge" key={label}>
-                <span>{icon}</span>
-                {label}
+            {stackBadges.slice(0, 7).map((badge) => (
+              <span className="tech-badge" key={badge.label}>
+                <span className="tech-badge-icon">
+                  {badge.icon ? <img src={badge.icon} alt="" aria-hidden="true" /> : badge.fallback}
+                </span>
+                {badge.label}
               </span>
             ))}
           </div>
@@ -235,10 +274,12 @@ function App() {
         </div>
 
         <div className="badge-wall">
-          {stackBadges.map(([label, icon]) => (
-            <span className="tech-badge tech-badge-large" key={label}>
-              <span>{icon}</span>
-              {label}
+          {stackBadges.map((badge) => (
+            <span className="tech-badge tech-badge-large" key={badge.label}>
+              <span className="tech-badge-icon">
+                {badge.icon ? <img src={badge.icon} alt="" aria-hidden="true" /> : badge.fallback}
+              </span>
+              {badge.label}
             </span>
           ))}
         </div>
@@ -274,11 +315,6 @@ function App() {
         <div className="case-layout">
           <div className="case-visual image-lift">
             <PhoneMockup src={walletScreen} alt="Màn hình tạo ví trong ứng dụng Tiết Kiệm Chi Tiêu" />
-            <div className="video-note">
-              <strong>Gợi ý video demo</strong>
-              <code>{`<video src="/demo.mp4" autoPlay loop muted playsInline />`}</code>
-              <p>Có thể thay ảnh tĩnh bằng video/GIF demo thao tác tạo ví, thêm giao dịch và xem thống kê.</p>
-            </div>
           </div>
           <div className="case-timeline">
             {caseSteps.map((step, index) => (
@@ -362,7 +398,7 @@ function App() {
           <a className="button button-primary" href={gmailUrl} target="_blank" rel="noreferrer">
             Gửi email
           </a>
-          <a className="button button-tonal" href={profile.github} target="_blank" rel="noreferrer">
+          <a className="button button-primary" href={profile.github} target="_blank" rel="noreferrer">
             Xem GitHub
           </a>
           <a className="button button-outlined" href={profile.zalo}>
