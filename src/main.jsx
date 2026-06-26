@@ -10,74 +10,79 @@ import walletScreen from "./assests/Screenshot_20260626-204804.jpg";
 gsap.registerPlugin(ScrollTrigger);
 
 const profile = {
-  name: "Nguyễn Duy Tiến",
-  role: "Lập trình viên Mobile",
-  focus: "Cross-platform Mobile Developer",
+  name: "Phạm Đức Duy Tiến",
+  role: "Flutter Developer",
+  focus: "Mobile Developer / Flutter Developer",
   email: "duytienkaka123az@gmail.com",
   github: "https://github.com/duytienkaka",
-  headline: "Thiết kế và xây dựng ứng dụng mobile mượt mà, dễ dùng, dễ mở rộng.",
+  zalo: "tel:0382381164",
+  projectUrl: "https://github.com/duytienkaka/TietKiem",
+  aiVisionUrl: "https://github.com/duytienkaka/AI-Vision-Service",
+  location: "TP Hà Nội",
+  headline: "Xây dựng ứng dụng Flutter mượt, rõ kiến trúc và sẵn sàng mở rộng.",
   tagline:
-    "Tôi phát triển ứng dụng Flutter và React Native với tư duy sản phẩm, kiến trúc sạch, tích hợp API ổn định và trải nghiệm người dùng được chăm chút từ những chi tiết nhỏ.",
+    "Tôi là lập trình viên Mobile tập trung vào Flutter, xây dựng giao diện chỉn chu, luồng dữ liệu ổn định và kiến trúc dễ bảo trì. Mục tiêu của tôi là tạo ra những ứng dụng Android có trải nghiệm mượt, xử lý offline tốt và đủ rõ ràng để phát triển tiếp trong môi trường thực tế.",
 };
 
 const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
   profile.email,
 )}&su=${encodeURIComponent("Trao đổi cơ hội hợp tác Mobile Developer")}&body=${encodeURIComponent(
-  "Chào Tiến,\n\nMình muốn trao đổi với bạn về một cơ hội/dự án mobile.\n\n",
+  "Chào Duy Tiến,\n\nMình muốn trao đổi với bạn về một cơ hội/dự án mobile.\n\n",
 )}`;
 
 const techGroups = [
   {
     title: "Ngôn ngữ",
     lead: "Dart",
-    text: "Dart, JavaScript, TypeScript, Kotlin cơ bản",
+    text: "Dart là ngôn ngữ chính; có nền tảng JavaScript và TypeScript để làm việc với API, tooling và các dự án liên quan.",
   },
   {
-    title: "Framework",
+    title: "Flutter Stack",
     lead: "Flutter",
-    text: "Flutter, React Native, Bloc, Provider",
+    text: "Flutter, Material 3, Riverpod, go_router, Provider và Bloc cho giao diện, điều hướng và quản lý trạng thái.",
   },
   {
     title: "Dữ liệu và API",
-    lead: "Firebase",
-    text: "Firebase Auth, RESTful API, local caching, offline-first flow",
+    lead: "SQLite",
+    text: "Drift (SQLite), Supabase, Firebase, RESTful API, SharedPreferences và luồng dữ liệu offline-first.",
   },
   {
     title: "Quy trình",
     lead: "Git",
-    text: "Git, GitHub, CI/CD, README, workflow deploy",
+    text: "Git, GitHub, README, demo project, quản lý mã nguồn và tinh thần làm việc nhóm rõ ràng.",
   },
 ];
 
 const caseSteps = [
   {
     title: "Bài toán sản phẩm",
-    text: "Người dùng cần ghi lại thu chi nhanh, xem xu hướng chi tiêu rõ ràng và theo dõi hạn mức hằng tháng mà không bị rối bởi quá nhiều thao tác.",
+    text: "Tiết Kiệm Chi Tiêu giúp người dùng quản lý nhiều ví như tiền mặt, tài khoản ngân hàng và tiết kiệm; ghi nhận thu nhập, chi tiêu, chuyển tiền, ngân sách, mục tiêu tiết kiệm và giao dịch định kỳ.",
   },
   {
     title: "Giải pháp kỹ thuật",
-    text: "Ứng dụng được tổ chức theo MVVM, tách UI, state, repository và service để luồng dữ liệu bất đồng bộ dễ kiểm soát, dễ mở rộng và dễ kiểm thử.",
+    text: "Ứng dụng được xây bằng Flutter, Material 3, Riverpod, go_router và Drift (SQLite), kết hợp Supabase để đồng bộ dữ liệu. Cấu trúc tách rõ UI, state, dữ liệu cục bộ và dịch vụ đồng bộ.",
   },
   {
-    title: "Trải nghiệm offline-first",
-    text: "Dữ liệu cục bộ được ưu tiên để người dùng vẫn xem được giao dịch khi mạng yếu, sau đó đồng bộ lại với API hoặc Firebase khi kết nối ổn định.",
+    title: "Điểm kỹ thuật nổi bật",
+    text: "Luồng phát hiện giao dịch ngân hàng từ thông báo Android là điểm đáng chú ý: ứng dụng có thể đọc tín hiệu từ thông báo, hỗ trợ người dùng kiểm tra và ghi nhận giao dịch nhanh hơn.",
   },
   {
-    title: "Kết quả mong muốn",
-    text: "Một case study rõ ràng trên website: có mockup điện thoại, mô tả chức năng, giải thích kỹ thuật và nút dẫn thẳng về GitHub để xem mã nguồn.",
+    title: "Giá trị thể hiện",
+    text: "Dự án cho thấy khả năng xây dựng app mobile có giao diện hoàn chỉnh, dữ liệu offline, backup/restore JSON, khóa PIN, đính kèm ảnh hóa đơn và chia sẻ ví theo người dùng.",
   },
 ];
 
 const skills = [
   "Flutter",
-  "React Native",
   "Dart",
-  "Firebase",
-  "Bloc",
-  "RESTful API",
-  "MVVM",
+  "Riverpod",
+  "go_router",
+  "Drift SQLite",
+  "Supabase",
+  "Material 3",
   "Offline-first",
-  "Clean Architecture",
+  "RESTful API",
+  "Firebase",
   "GitHub",
 ];
 
@@ -168,7 +173,7 @@ function App() {
         <div className="hero-orb hero-orb-two" />
 
         <div className="hero-content">
-          <p className="hero-kicker">{profile.focus} / Flutter / React Native</p>
+          <p className="hero-kicker">{profile.focus} / {profile.location}</p>
           <h1 className="hero-title">{profile.headline}</h1>
           <p className="hero-copy">{profile.tagline}</p>
           <div className="hero-actions">
@@ -194,12 +199,12 @@ function App() {
             <img src={toolsScreen} alt="Màn hình công cụ trong ứng dụng quản lý chi tiêu" />
             <div>
               <span>{profile.name}</span>
-              <strong>{profile.role}</strong>
+              <strong>{profile.role} tại Hà Nội</strong>
             </div>
           </article>
           <article className="app-window launch-note">
             <span>Giá trị mang lại</span>
-            <h2>Ứng dụng rõ luồng, chạy ổn và đủ chỉn chu để demo.</h2>
+            <h2>Ứng dụng Flutter rõ luồng, chạy ổn và đủ chỉn chu để demo.</h2>
           </article>
         </div>
       </section>
@@ -211,17 +216,17 @@ function App() {
           </h2>
           <p>
             Tôi không chỉ liệt kê công nghệ. Mỗi nhóm kỹ năng thể hiện một phần của quá trình xây dựng
-            ứng dụng mobile: giao diện, dữ liệu, kiến trúc và quy trình bàn giao.
+            ứng dụng Flutter: giao diện, điều hướng, dữ liệu cục bộ, đồng bộ và quy trình bàn giao.
           </p>
         </div>
 
         <div className="tech-grid">
           <article className="tech-card tech-card-large">
             <span>Định hướng chính</span>
-            <h3>Cross-platform mobile development</h3>
+            <h3>Flutter mobile development</h3>
             <p>
-              Tập trung vào Flutter và React Native để xây dựng ứng dụng có giao diện mượt, cấu trúc mã
-              nguồn dễ đọc và khả năng phát triển tiếp trong môi trường thực tế.
+              Tập trung vào Flutter để xây dựng ứng dụng Android có giao diện mượt, mã nguồn dễ đọc,
+              dữ liệu offline-first và khả năng phát triển tiếp trong môi trường thực tế.
             </p>
           </article>
           {techGroups.map((group) => (
@@ -236,17 +241,17 @@ function App() {
 
       <section id="projects" className="project-section">
         <div className="section-heading compact">
-          <h2>Case Study: Ứng dụng Quản lý Chi tiêu</h2>
+          <h2>Case Study: Tiết Kiệm Chi Tiêu</h2>
           <p>
-            Bố cục mới kể dự án theo hành trình: bài toán, giải pháp, trải nghiệm offline-first và kết
-            quả. Cách này giúp nhà tuyển dụng hiểu nhanh vai trò kỹ thuật của bạn trong sản phẩm.
+            Dự án mobile nổi bật nhất của tôi: một ứng dụng quản lý tài chính cá nhân viết bằng Flutter,
+            tối ưu cho Android, hỗ trợ offline-first và theo dõi thu chi hằng ngày.
           </p>
         </div>
 
         <div className="case-layout">
           <div className="case-visual image-lift">
             <img src={walletScreen} alt="Màn hình tạo ví trong ứng dụng quản lý chi tiêu" />
-            <p>Ảnh chụp giao diện thật của ứng dụng: tạo ví, chọn loại ví, tùy chỉnh màu sắc và biểu tượng.</p>
+            <p>Ảnh chụp giao diện thật của Tiết Kiệm Chi Tiêu: tạo ví, chọn loại ví, tùy chỉnh màu sắc và biểu tượng.</p>
           </div>
           <div className="case-timeline">
             {caseSteps.map((step, index) => (
@@ -257,7 +262,7 @@ function App() {
               </article>
             ))}
             <div className="case-actions">
-              <a className="button button-primary" href={profile.github} target="_blank" rel="noreferrer">
+              <a className="button button-primary" href={profile.projectUrl} target="_blank" rel="noreferrer">
                 Xem code trên GitHub
               </a>
               <a className="button button-secondary" href={gmailUrl} target="_blank" rel="noreferrer">
@@ -281,24 +286,39 @@ function App() {
           <p className="section-kicker">Giới thiệu</p>
           <h2>Tôi chọn Mobile vì đây là nơi phần mềm chạm vào thói quen hằng ngày của người dùng.</h2>
           <p>
-            Một ứng dụng tốt không chỉ cần chạy đúng, mà còn phải nhanh, dễ hiểu, ổn định và tạo cảm
-            giác tin cậy. Triết lý viết code của tôi là giữ mọi thứ rõ ràng: kiến trúc dễ bảo trì,
-            state management có kiểm soát, luồng API dễ theo dõi và giao diện đặt trải nghiệm người
-            dùng lên đầu. Khi xây dựng một màn hình Flutter, kết nối Firebase, xử lý RESTful API hay
-            chuẩn bị repo trên GitHub, tôi luôn nghĩ đến việc người dùng có thao tác dễ không, lập
-            trình viên khác có bảo trì được không và sản phẩm có đủ chỉn chu để demo thực tế không.
+            Tôi là sinh viên chuẩn bị ra trường và đang định hướng trở thành Mobile Developer chuyên về
+            Flutter. Với tôi, một ứng dụng tốt không chỉ cần chạy đúng, mà còn phải nhanh, dễ hiểu, ổn
+            định và tạo cảm giác tin cậy. Tôi ưu tiên cách viết code rõ ràng, kiến trúc dễ bảo trì,
+            quản lý state có kiểm soát, luồng API dễ theo dõi và giao diện đặt trải nghiệm người dùng
+            lên đầu. Mục tiêu hiện tại của tôi là tiếp tục hoàn thiện kỹ năng Flutter, làm tốt trong môi
+            trường đội nhóm và xây dựng các sản phẩm mobile có giá trị thực tế.
           </p>
         </div>
         <div className="proof-card">
           <div className="proof-badges" aria-label="Các điểm chứng minh năng lực">
             <span>GitHub</span>
-            <span>Demo App</span>
-            <span>UI Mobile</span>
+            <span>Tiết Kiệm Chi Tiêu</span>
+            <span>AI Vision Service</span>
           </div>
           <blockquote>
-            Có thể đặt lời nhận xét từ mentor, đồng đội hoặc leader tại đây, kèm GitHub Contribution
-            Graph để tăng độ tin cậy cho hồ sơ cá nhân.
+            Điểm mạnh của tôi là hoàn thành sản phẩm đến mức có thể demo, tối ưu giao diện responsive,
+            tích hợp xác thực và dữ liệu, đồng thời giữ tinh thần làm việc nhóm tốt.
           </blockquote>
+        </div>
+      </section>
+
+      <section className="secondary-project-section">
+        <div className="secondary-project-card">
+          <span>Dự án khác</span>
+          <h2>AI-Vision-Service</h2>
+          <p>
+            Dịch vụ nhận diện đối tượng cho nền tảng Smart Campus: nhận ảnh từ camera, chạy YOLO, lưu
+            kết quả vào PostgreSQL, gửi sự kiện nhận diện sang Core Service và cung cấp REST API,
+            OpenAPI cùng giao diện web demo trực tiếp.
+          </p>
+          <a className="button button-primary" href={profile.aiVisionUrl} target="_blank" rel="noreferrer">
+            Xem dự án AI Vision
+          </a>
         </div>
       </section>
 
@@ -307,8 +327,9 @@ function App() {
           <p className="footer-kicker">Liên hệ</p>
           <h2>Sẵn sàng trao đổi về một cơ hội Mobile Developer?</h2>
           <p>
-            Nếu bạn đang tìm một lập trình viên có thể xây dựng giao diện mobile, tích hợp API, chăm
-            chút trải nghiệm và trình bày sản phẩm rõ ràng, hãy gửi email cho tôi.
+            Nếu bạn đang tìm một sinh viên chuẩn bị ra trường có định hướng rõ về Flutter, có sản phẩm
+            demo thật và sẵn sàng học nhanh trong môi trường thực tế, hãy liên hệ với tôi qua email,
+            GitHub hoặc Zalo 0382381164.
           </p>
         </div>
         <div className="footer-actions">
@@ -317,6 +338,9 @@ function App() {
           </a>
           <a className="button button-secondary" href={profile.github} target="_blank" rel="noreferrer">
             Xem GitHub
+          </a>
+          <a className="button button-secondary" href={profile.zalo}>
+            Gọi Zalo
           </a>
         </div>
       </footer>
